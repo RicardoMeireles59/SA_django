@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}BC Club{% endblock %}</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>BC Club</h1>
+
+        {% if user.is_authenticated %}
+        <p>Olá, {{ user.username }}</p>
+        <a href="{% url 'agendamento_form' %}">Novo Agendamento</a>
+        {% else %}
+        <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </header>
+
+    <hr>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+
+</html>
