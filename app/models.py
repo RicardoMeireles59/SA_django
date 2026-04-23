@@ -33,5 +33,5 @@ class Agendamento(models.Model):
     status = models.CharField(
         max_length=20,
         choices=Status.choices,
-        default=Status.PENDENTE
+        default=Status.CONFIRMADO
     )

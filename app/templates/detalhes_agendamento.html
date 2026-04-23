@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Detalhe do Agendamento{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'detalhes_agendamento.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<h2>Detalhe do Agendamento</h2>
+
+<hr>
+
+<div class="detalhe-container">
+
+    <p><strong>Serviço:</strong> {{ agendamento.servico.nome }}</p>
+
+    <p><strong>Data:</strong> {{ agendamento.data_hora|date:"d/m/Y" }}</p>
+
+    <p><strong>Horário:</strong> {{ agendamento.data_hora|time:"H:i" }}</p>
+
+    <p><strong>Status:</strong>
+        {% if agendamento.status == 'pendente' %}
+        🟡 Pendente
+        {% elif agendamento.status == 'confirmado' %}
+        🟢 Confirmado
+        {% elif agendamento.status == 'cancelado' %}
+        🔴 Cancelado
+        {% endif %}
+    </p>
+
+</div>
+
+<a href="{% url 'meus_agendamentos' %}">← Voltar</a>
+
+{% if agendamento.status != 'cancelado' %}
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">
+        Cancelar Agendamento
+    </button>
+</form>
+{% endif %}
+
+{% endblock %}

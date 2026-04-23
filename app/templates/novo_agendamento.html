@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Novo Agendamento{% endblock %}
+
+{% block content %}
+
+<h2>Novo Agendamento</h2>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <!-- Serviço -->
+    <div>
+        <label for="servico">Serviço:</label>
+        <select name="servico" required>
+            <option value="">Selecione um serviço</option>
+            {% for servico in servicos %}
+            <option value="{{ servico.id }}">
+                {{ servico.nome }} - R$ {{ servico.preco }}
+            </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <br>
+
+    <!-- Data -->
+    <div>
+        <label for="data">Data:</label>
+        <input type="date" name="data" required>
+    </div>
+
+    <br>
+
+    <!-- Hora -->
+    <div>
+        <label for="hora">Horário:</label>
+        <input type="time" name="hora" required>
+    </div>
+
+    <br>
+
+    <!-- Botão -->
+    <button type="submit">Agendar</button>
+
+</form>
+
+<br>
+
+<a href="{% url 'meus_agendamentos' %}">← Voltar</a>
+
+{% endblock %}

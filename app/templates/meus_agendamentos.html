@@ -1,15 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamentos
-    </title>
-</head>
+{% block title %}Meus Agendamentos{% endblock %}
 
-<body>
-    <span> TESTE </span>
-</body>
+{% block content %}
 
-</html>
+<h2>Meus Agendamentos</h2>
+
+<a href="{% url 'novo_agendamento' %}">+ Novo Agendamento</a>
+
+<hr>
+
+{% if meus_agendamentos %}
+
+<table border="1" cellpadding="10">
+    <thead>
+        <tr>
+            <th>Serviço</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Status</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for agendamento in meus_agendamentos %}
+        <tr>
+            <td>{{ agendamento.servico.nome }}</td>
+
+            <td>{{ agendamento.data_hora|date:"d/m/Y" }}</td>
+
+            <td>{{ agendamento.data_hora|time:"H:i" }}</td>
+
+            <td>
+                {% if agendamento.status == 'pendente' %}
+                🟡 Pendente
+                {% elif agendamento.status == 'confirmado' %}
+                🟢 Confirmado
+                {% elif agendamento.status == 'cancelado' %}
+                🔴 Cancelado
+                {% endif %}
+            </td>
+
+            <td>
+                <a href="{% url 'detalhes_agendamento' agendamento.id %}">
+                    Ver
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+
+<p>Você ainda não possui agendamentos.</p>
+
+{% endif %}
+
+{% endblock %}

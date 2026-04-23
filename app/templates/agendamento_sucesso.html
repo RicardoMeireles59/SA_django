@@ -1,0 +1,19 @@
+
+
+{% block content %}
+
+{% if messages %}
+{% for message in messages %}
+<p style="color: green;">{{ message }}</p>
+{% endfor %}
+{% endif %}
+
+<p>Redirecionando...</p>
+
+<script>
+    setTimeout(function () {
+        window.location.href = "{% url 'meus_agendamentos' %}";
+    }, 2000);
+</script>
+
+{% endblock %}

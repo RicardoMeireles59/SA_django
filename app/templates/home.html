@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -5,27 +7,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="../statics/login.css">
+    <link rel="stylesheet" href="{% static 'home.css' %}">
 </head>
-
-{% extends 'base.html' %}
-
-{% block title %}Home{% endblock %}
-
-{% block content %}
 
 <body>
     <header>
         <div class="inicio">
-            <img src="#" alt="#">
+            <img src="" alt="#">
             <span>
                 Barbearia&Shop Bclub
             </span>
         </div>
 
-        <button class="entrar">
+        <a href="{% url 'login' %}" class="entrar">
             Entrar
-        </button>
+        </a>
     </header>
 
     <main>
@@ -54,11 +50,13 @@
             <span> 8h às 18h </span>
         </div>
 
+        <!-- 
         <div class="contatos">
             <button class="endereco"> </button>
             <button class="whatsapp"> </button>
             <button class="instagram"> </button>
         </div>
+        -->
 
         <div class="diferenciais">
             <span> Diferenciais </span>
@@ -80,10 +78,7 @@
 
     <footer>
         <span> 2026 Barbearia&Shop Bclub </span>
-        <a href="#"> Cookies </a>
-        <a href="#"> Privacidade </a>
     </footer>
 </body>
-{% endblock %}
 
 </html>

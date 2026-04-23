@@ -1,0 +1,114 @@
+/* Importando uma fonte moderna e limpa do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+/* Reset básico para remover margens padrão e facilitar o layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fundo da página e centralização do painel */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121212;
+    /* Fundo escuro e elegante */
+    background-image: radial-gradient(circle, #1f1f1f 0%, #121212 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+}
+
+/* Estilo do cartão de login central */
+.painel_central {
+    background-color: #1e1e1e;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+    /* Sombra suave para dar profundidade */
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Organização dos elementos dentro do formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    /* Espaçamento uniforme entre os campos */
+}
+
+/* Estilo do título "BC Club" */
+span {
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    color: #d4af37;
+    /* Dourado premium */
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Estilo dos campos de texto e senha */
+input {
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #2a2a2a;
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Efeito ao clicar no campo para digitar (Foco) */
+input:focus {
+    border-color: #d4af37;
+    /* Borda dourada ao focar */
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.2);
+}
+
+/* Alterando a cor do placeholder para ficar legível no fundo escuro */
+input::placeholder {
+    color: #888;
+}
+
+/* Estilo do botão "Entrar" */
+button {
+    padding: 15px;
+    background-color: #d4af37;
+    color: #121212;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+/* Efeito ao passar o mouse por cima do botão */
+button:hover {
+    background-color: #b5952f;
+}
+
+/* Efeito ao clicar no botão */
+button:active {
+    transform: scale(0.98);
+}
+
+/* Ajuste da mensagem de erro */
+form p {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: -10px;
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 0, 0, 0.3);
+}

@@ -1,0 +1,160 @@
+/* Variáveis para facilitar a manutenção */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.layout {
+    display: flex;
+}
+
+.navbar {
+    width: 220px;
+    height: 100vh;
+    background-color: #222;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+.user-info {
+    color: white;
+    margin-top: auto;
+}
+
+:root {
+    --gold: #d4af37;
+    --dark-card: #1e1e1e;
+    --dark-bg: #121212;
+    --nav-width-desktop: 260px;
+    --nav-height-mobile: 70px;
+    --transition: all 0.3s ease;
+}
+
+/* Ajuste do corpo para não ser coberto pela navbar */
+body {
+    margin: 0;
+    padding-left: var(--nav-width-desktop);
+    /* Abre espaço para a sidebar */
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilo Base da Navbar (Desktop) */
+.navbar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--nav-width-desktop);
+    height: 100vh;
+    background-color: var(--dark-card);
+    display: flex;
+    flex-direction: column;
+    /* Itens empilhados verticalmente */
+    justify-content: space-between;
+    padding: 40px 20px;
+    border-right: 2px solid var(--gold);
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* Lado Esquerdo (Links principais no Desktop) */
+.nav-left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Lado Direito (Perfil/Sair no Desktop) */
+.nav-right {
+    padding-top: 20px;
+    border-top: 1px solid #333;
+    font-size: 14px;
+    color: #bbb;
+}
+
+/* Estilo dos Links */
+.navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: var(--transition);
+    display: block;
+}
+
+.navbar a:hover {
+    color: var(--gold);
+    transform: translateX(5px);
+}
+
+/* --- CONFIGURAÇÃO PARA DISPOSITIVOS MÓVEIS --- */
+@media (max-width: 768px) {
+    body {
+        padding-left: 0;
+        padding-bottom: var(--nav-height-mobile);
+        /* Abre espaço para a barra inferior */
+    }
+
+    .navbar {
+        top: auto;
+        bottom: 0;
+        /* Fixa no rodapé */
+        width: 100%;
+        height: var(--nav-height-mobile);
+        flex-direction: row;
+        /* Itens lado a lado */
+        padding: 0 15px;
+        border-right: none;
+        border-top: 2px solid var(--gold);
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .nav-left {
+        flex-direction: row;
+        /* Links em linha no mobile */
+        gap: 15px;
+        width: 100%;
+        justify-content: space-around;
+    }
+
+    .nav-right {
+        border-top: none;
+        padding-top: 0;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        white-space: nowrap;
+    }
+
+    /* Remove o efeito de translação lateral no mobile */
+    .navbar a:hover {
+        transform: scale(1.1);
+    }
+
+    /* Esconde o texto "Olá, usuário" em telas muito pequenas para não apertar */
+    @media (max-width: 480px) {
+        .nav-right {
+            font-size: 10px;
+        }
+    }
+}

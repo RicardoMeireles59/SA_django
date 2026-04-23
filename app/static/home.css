@@ -1,0 +1,200 @@
+/* Importando a fonte para garantir consistência */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --gold: #d4af37;
+    --dark-card: #1e1e1e;
+    --dark-bg: #121212;
+    --text-gray: #b0b0b0;
+    --transition: all 0.3s ease;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--dark-bg);
+    color: #fff;
+    line-height: 1.6;
+}
+
+/* --- HEADER --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: var(--dark-card);
+    border-bottom: 1px solid #333;
+}
+
+.inicio {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.inicio img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--gold);
+    /* Placeholder caso a imagem não carregue */
+}
+
+.inicio span {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.entrar {
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.entrar:hover {
+    background-color: var(--gold);
+    color: #121212;
+}
+
+/* --- CONTEÚDO PRINCIPAL (MAIN) --- */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Seção Sobre */
+.sobre {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.sobre span,
+.diferenciais span {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 10px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin-bottom: 20px;
+}
+
+.sobre p {
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    text-align: justify;
+}
+
+/* Horários */
+.horarios {
+    background-color: var(--dark-card);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid #333;
+    margin-bottom: 40px;
+}
+
+.horarios span {
+    display: block;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+.horarios span:first-child {
+    color: var(--gold);
+}
+
+/* Contatos (Botões de Redes Sociais) */
+.contatos {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.contatos button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background-color: var(--dark-card);
+    color: var(--gold);
+    font-size: 1.5rem;
+    transition: var(--transition);
+    border: 1px solid #333;
+}
+
+.contatos button:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Diferenciais (Lista em Grid) */
+.diferenciais ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.diferenciais li {
+    background-color: #1a1a1a;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--gold);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.diferenciais li:hover {
+    background-color: #252525;
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .sobre span,
+    .diferenciais span {
+        font-size: 1.6rem;
+    }
+
+    .diferenciais ul {
+        grid-template-columns: 1fr 1fr;
+        /* Duas colunas no mobile */
+        font-size: 0.9rem;
+    }
+}

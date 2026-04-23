@@ -1,0 +1,127 @@
+/* Importação da fonte para garantir o estilo */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    --gold: #d4af37;
+    --dark-card: #1e1e1e;
+    --dark-bg: #121212;
+    --danger: #ff4d4d;
+    --text-gray: #e0e0e0;
+}
+
+/* Título com mais destaque */
+h2 {
+    font-size: 2.2rem;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+hr {
+    border: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), transparent);
+    margin-bottom: 40px;
+}
+
+/* Container expandido */
+.detalhe-container {
+    background-color: var(--dark-card);
+    padding: 50px;
+    /* Aumentado o respiro interno */
+    border-radius: 15px;
+    border: 1px solid #333;
+    border-left: 8px solid var(--gold);
+    /* Borda lateral mais espessa */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 800px;
+    /* Ocupa bem mais a tela agora */
+    margin: 20px 0 40px 0;
+}
+
+/* Estilização das linhas de informação */
+.detalhe-container p {
+    font-size: 1.4rem;
+    /* Texto maior para leitura fácil */
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-between;
+    /* Espalha o rótulo da informação */
+    align-items: center;
+    color: var(--text-gray);
+}
+
+.detalhe-container p strong {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 1.5px;
+}
+
+/* Link de Voltar estilizado como botão discreto */
+a[href*="meus_agendamentos"] {
+    display: inline-block;
+    color: var(--gold);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+    border-bottom: 1px solid transparent;
+}
+
+a[href*="meus_agendamentos"]:hover {
+    border-bottom: 1px solid var(--gold);
+    padding-left: 10px;
+    /* Efeito de deslocamento */
+}
+
+/* Botão de Cancelar imponente */
+button[type="submit"] {
+    width: 100%;
+    max-width: 800px;
+    /* Alinhado com o container */
+    padding: 20px;
+    background-color: transparent;
+    border: 2px solid var(--danger);
+    color: var(--danger);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--danger);
+    color: #fff;
+    box-shadow: 0 10px 20px rgba(255, 77, 77, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .detalhe-container {
+        padding: 30px 20px;
+    }
+
+    .detalhe-container p {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
